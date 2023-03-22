@@ -1,3 +1,5 @@
+  version: "2.1"
+  
   cirrus:
     image: "tensorworks/buccaneerdemo-cirrus"
     container_name: cirrus
