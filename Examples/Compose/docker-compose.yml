@@ -1,7 +1,5 @@
-  version: "3.8"
-  
-  services:
-  
+version: "3.8"
+services:
   cirrus:
     image: "tensorworks/buccaneerdemo-cirrus"
     container_name: cirrus
