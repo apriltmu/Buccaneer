@@ -1,16 +1,3 @@
-services:
-  unreal:
-    image: "tensorworks/buccaneerdemo-application"
-    container_name: unreal
-    network_mode: "host"
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            capabilities: [gpu]
-            count: 1
-
   cirrus:
     image: "tensorworks/buccaneerdemo-cirrus"
     container_name: cirrus
