@@ -19,7 +19,3 @@ datasources:
   access: proxy
   httpMethod: POST
   url: http://127.0.0.1:9090
- networks:
-  network1:
-    name: bucc_default
-    external: true
