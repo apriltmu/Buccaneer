@@ -13,7 +13,7 @@ services:
     container_name: events
     volumes:
       - "eventslogs:/app"
-    network:
+    networks:
       - host
 
   prometheus:
