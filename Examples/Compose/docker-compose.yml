@@ -3,28 +3,20 @@ services:
   cirrus:
     image: "tensorworks/buccaneerdemo-cirrus"
     container_name: cirrus
-    networks:
-      - bucc_default
 
   statsserver:
     image: "tensorworks/buccaneerdemo-statsserver"
     container_name: stats
-    networks:
-      - bucc_default
 
   eventsserver:
     image: "tensorworks/buccaneerdemo-eventsserver"
     container_name: events
-    networks:
-      - bucc_default
     volumes:
       - "eventslogs:/app"
 
   prometheus:
     image: "prom/prometheus"
     container_name: prometheus
-    networks:
-      - bucc_default
     volumes:
       - "/root/Buccaneer/Configs/prometheus.yml:/etc/prometheus/prometheus.yml"
 
@@ -33,8 +25,6 @@ services:
     container_name: grafana
     ports:
       - 3000:3000
-    networks:
-      - bucc_default
     volumes:
       - "/root/Buccaneer/Configs/grafana-dashboard-config.yaml:/etc/grafana/provisioning/dashboards/grafana-dashboard-config.yaml"
       - "/root/Buccaneer/Configs/grafana-datasource-config.yaml:/etc/grafana/provisioning/datasources/grafana-datasource-config.yaml"
@@ -43,8 +33,6 @@ services:
   loki:
     image: grafana/loki
     container_name: loki
-    networks:
-      - bucc_default
     volumes:
       - "/root/Buccaneer/Configs/loki-local-config.yaml:/etc/loki/loki-local-config.yaml"
 
@@ -52,15 +40,9 @@ services:
     image: grafana/promtail
     container_name: promtail
     command: -config.file=/etc/promtail/promtail-local-config.yaml
-    networks:
-      - bucc_default
     volumes:
       - "/root/Buccaneer/Configs/promtail-local-config.yaml:/etc/promtail/promtail-local-config.yaml"
       - "eventslogs:/EventsServer"
 
 volumes:
   eventslogs:
-
-networks:
-  bucc_default:
-    external: true
