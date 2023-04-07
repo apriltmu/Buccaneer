@@ -37,7 +37,7 @@ services:
       - "3100:3100"
       - "9096:9096"
     networks:
-      - loki
+      - bucc_default
 
   promtail:
     image: grafana/promtail
