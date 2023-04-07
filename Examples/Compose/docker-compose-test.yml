@@ -36,6 +36,8 @@ services:
     ports:
       - "3100:3100"
       - "9096:9096"
+    networks:
+      - loki
 
   promtail:
     image: grafana/promtail
