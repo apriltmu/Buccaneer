@@ -82,4 +82,6 @@ volumes:
   eventslogs:
 
 networks:
-  - loki
+  loki:
+    driver: bridge
+
