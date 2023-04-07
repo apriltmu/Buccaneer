@@ -13,6 +13,8 @@ services:
     container_name: events
     volumes:
       - "eventslogs:/app"
+    network:
+      - host
 
   prometheus:
     image: "prom/prometheus"
